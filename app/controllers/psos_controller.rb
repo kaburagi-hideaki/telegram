@@ -1,2 +1,0 @@
-class PsosController < ApplicationController
-end
