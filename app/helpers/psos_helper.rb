@@ -1,0 +1,2 @@
+module PsosHelper
+end

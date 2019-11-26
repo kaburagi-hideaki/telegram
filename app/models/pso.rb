@@ -1,0 +1,2 @@
+class Pso < ApplicationRecord
+end
