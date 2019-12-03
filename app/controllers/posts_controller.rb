@@ -4,9 +4,13 @@ class PostsController < ApplicationController
   end
 
   def create
-    @post = Post.new(post_params)
-    @post.save
-    redirect_to @post
+    @post = Post.new(post_params) # ストロングパラメータを引数に
+    @post.save # saveをしてデータベースに保存する。
+    redirect_to @post # showページにリダイレクト
+  end
+
+  def show
+    @post = Post.find(params[:id])
   end
 
   private
