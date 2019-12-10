@@ -13,7 +13,7 @@ class User < ApplicationRecord
 
   def new_avatar_check
     if new_avatar.present?
-      unless new_image.content_type.in?(%w(image/jpeg image/png))
+      unless new_avatar.content_type.in?(%w(image/jpeg image/png))
         errors.add(:new_image, 'にはjpegまたはpngファイルを添付してください')
       end
     else
