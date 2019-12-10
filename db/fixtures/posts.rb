@@ -15,10 +15,6 @@ unless Rails.env.production?
       }
     end
   end
-  else
-    if !image.attached?
-    errors.add(:new_image, 'ファイルを添付してください')
-  end
 
   # Proc.newでオブジェクト化したデータ(*post_attrs)を.callで呼び出して保存
   # seed_onceメソッドは上書きを行わない
