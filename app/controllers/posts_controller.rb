@@ -11,6 +11,9 @@ class PostsController < ApplicationController
 
   def create
     @post = Post.new(post_params) # ストロングパラメータを引数に
+    @post.attributes = {
+      user_id: current_user.id
+    }
     if @post.save
       redirect_to @post, notice: "投稿を保存しました。"
     else
