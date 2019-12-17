@@ -29,8 +29,8 @@ class PostsController < ApplicationController
   def update
     if @post.update(post_params)
       redirect_to @post, notice: "投稿を更新しました"
-    eise
-    render :edit
+    else
+      render :edit
     end
   end
 
