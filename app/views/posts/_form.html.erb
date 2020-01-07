@@ -1,6 +1,6 @@
-<%= form_with model: post, local: true do|f| %>
+<%= form_with model: post, local: true do |f| %>
   <%= render "shared/errors", obj: post %>
-  <div class="form-mgroup">
+  <div class="form-group">
     <%= f.label :new_image %>
     <%= f.file_field :new_image, class: "form-control" %>
   </div>

@@ -5,25 +5,25 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_one_attached :avatar
   has_many :posts, dependent: :destroy
+  has_many :comments, dependent: :destroy
   attribute :new_avatar
 
   validates :name, presence: true, length: { maximum: 50 }
-  validates :username, presence: true, length: { maximum: 50 },uniqueness: true
+  validates :username, presence: true, length: { maximum: 50 }, uniqueness: true
   validates :description, presence: true, length: { maximum: 1000 }
   validate :new_avatar_check
 
   def new_avatar_check
     if new_avatar.present?
       unless new_avatar.content_type.in?(%w(image/jpeg image/png))
-        errors.add(:new_image, 'にはjpegまたはpngファイルを添付してください')
+        errors.add(:new_avatar, 'にはjpegまたはpngファイルを添付してください')
       end
     else
-      if !avatar.attached?
-        errors.add(:new_image, 'ファイルを添付してください')
+      unless avatar.attached?
+        errors.add(:new_avatar, 'ファイルを添付してください')
       end
     end
   end
-
 
   before_save do
     self.avatar = new_avatar if new_avatar

@@ -11,23 +11,27 @@
  * It is generally better to create a new file per style scope.
  *
  */
-
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
 @font-face {
-  font-family: 'Billabong';
-  src: font-url('Billabong.ttf') format('truetype');
+  font-family: "Billabong";
+  src: font-url("Billabong.ttf") format("truetype");
   font-weight: normal;
   font-style: normal;
 }
 
-.logo{
-  font-family: 'Billabong', cursive;
+.logo {
+  font-family: "Billabong", cursive;
   font-size: 2rem;
 }
 
 .scroll {
   overflow: scroll;
-  max-height: 465px;
+  max-height: 435px;
+}
+
+nav.pagination {
+  display: none;
 }

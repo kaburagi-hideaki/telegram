@@ -1,6 +1,7 @@
 class Post < ApplicationRecord
   has_one_attached :image
   belongs_to :user
+  has_many :comments, dependent: :destroy
   attribute :new_image
   validates :caption, presence: true
   validate :new_image_check
@@ -11,15 +12,13 @@ class Post < ApplicationRecord
         errors.add(:new_image, 'にはjpegまたはpngファイルを添付してください')
       end
     else
-      if !image.attached?
+      unless image.attached?
         errors.add(:new_image, 'ファイルを添付してください')
       end
     end
   end
 
   before_save do
-    if new_image
-      self.image = new_image if new_image
-    end
+    self.image = new_image if new_image
   end
 end
