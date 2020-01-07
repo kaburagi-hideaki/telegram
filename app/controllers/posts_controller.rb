@@ -3,7 +3,6 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:edit, :update, :destroy]
 
   def index
-    @posts = Post.find_newest_post(params[:page]).includes(user: [avatar_attachment: :blob],comments: [user: [avatar_attachment: :blob]])
     @comment = Comment.new
   end
 
