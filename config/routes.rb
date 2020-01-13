@@ -36,8 +36,18 @@
 #      rails_direct_uploads POST   /rails/active_storage/direct_uploads(.:format)                                           active_storage/direct_uploads#create
 
 Rails.application.routes.draw do
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   get 'users/show'
-  devise_for :users
+  devise_for :admin_users, controllers: {
+    sessions:      'admin_users/sessions',
+    passwords:     'admin_users/passwords',
+    registrations: 'admin_users/registrations'
+  }
+  devise_for :users, controllers: {
+    sessions:      'users/sessions',
+    passwords:     'users/passwords',
+    registrations: 'users/registrations'
+  }
   resources :posts
   resources :comments, only: [:create, :destroy]
   resources :users, only: :show

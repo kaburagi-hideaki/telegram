@@ -45,6 +45,9 @@ gem 'rails-i18n'
 gem 'devise-i18n'
 gem 'kaminari'
 gem 'ransack'
+gem 'rails_admin'
+gem 'rails_admin-i18n'
+gem 'devise-bootstrap-views', '~> 1.0'
 
 group :development, :test do
 gem 'pry-rails'
@@ -53,6 +56,7 @@ gem 'pry-byebug'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'faker'
   gem 'seed-fu', '~> 2.3'
+  
 end
 
 group :development do
