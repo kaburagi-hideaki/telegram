@@ -63,4 +63,7 @@ Rails.application.configure do
     Bullet.enable = true
     Bullet.alert = true
   end
+if Rails.env.development?
+  BetterErrors::Middleware.allow_ip! "0.0.0.0/0"
+end
 end
